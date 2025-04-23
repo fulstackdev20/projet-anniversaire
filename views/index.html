@@ -8,64 +8,135 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="hero">
+    <header class="hero">
         <div class="hero-content">
-            <h1>Une Soirée Magique</h1>
-            <p>Rejoignez-nous pour célébrer un moment inoubliable</p>
+            <h1>Célébration Exclusive</h1>
+            <p>Une soirée inoubliable pour célébrer un anniversaire exceptionnel</p>
         </div>
-    </div>
+    </header>
 
-    <div class="container">
-        <div class="reservation-card">
-            <form id="reservationForm">
-                <div class="form-group">
-                    <label for="name">
-                        <i class="fas fa-user"></i> Nom complet
-                    </label>
-                    <input type="text" id="name" name="name" required>
+    <main class="container">
+        <section class="event-details">
+            <div class="event-info">
+                <h2>Une Soirée d'Anniversaire Mémorable</h2>
+                <p class="highlight">Rejoignez-nous pour célébrer un <span class="accent">anniversaire exceptionnel</span> dans un cadre élégant et festif.</p>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <p><strong>Date:</strong> 15 Juin 2025</p>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Heure:</strong> 19h00</p>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><strong>Lieu:</strong> Libreville, Gabon</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">
-                        <i class="fas fa-envelope"></i> Email
-                    </label>
-                    <input type="email" id="email" name="email" required>
+                <div class="program">
+                    <h3>Programme de la Soirée</h3>
+                    <ul class="timeline">
+                        <li><span>19h00</span> Accueil des invités avec un cocktail de bienvenue</li>
+                        <li><span>20h00</span> Dîner gastronomique</li>
+                        <li><span>21h30</span> Animations et surprises</li>
+                        <li><span>22h30</span> Soirée dansante avec DJ</li>
+                        <li><span>00h00</span> Clôture de l'événement</li>
+                    </ul>
                 </div>
-                <div class="form-group">
-                    <label for="phone">
-                        <i class="fas fa-phone"></i> Téléphone
-                    </label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">
-                        <i class="fas fa-comment"></i> Message (optionnel)
-                    </label>
-                    <textarea id="message" name="message" rows="4"></textarea>
-                </div>
-                <button type="submit">
-                    <i class="fas fa-calendar-check"></i> Réserver ma place
-                </button>
-            </form>
-            <div id="placesRestantes"></div>
-            <div id="successMessage" class="success-message" style="display: none;">
-                Votre réservation a été enregistrée avec succès !
             </div>
-            <div id="errorMessage" class="error-message" style="display: none;">
-                Une erreur est survenue lors de la réservation.
+        </section>
+
+        <section class="features">
+            <h2>Ce qui vous attend</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Musique Live</h3>
+                    <p>Un groupe de musiciens talentueux pour animer la soirée.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽</div>
+                    <h3>Gastronomie</h3>
+                    <p>Un buffet d'exception préparé par un chef renommé.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Surprises</h3>
+                    <p>Des animations tout au long de la soirée.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reservation-section">
+            <div class="reservation-card">
+                <h2>Réservez votre place</h2>
+                <p class="places-info">Places limitées pour une expérience exclusive</p>
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Nom complet
+                        </label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i> Téléphone
+                        </label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment"></i> Message (optionnel)
+                        </label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-calendar-check"></i> Réserver ma place
+                    </button>
+                </form>
+                <div id="placesRestantes" class="places-counter"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#contact">Nous contacter</a></li>
+                    <li><a href="#legal">Mentions légales</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-center">
+                <p class="footer-title">CCR</p>
+                <p>Libreville, Gabon</p>
+                <p>Téléphone: 077381914</p>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>© CCR 2020 - Tous droits réservés</p>
+        </div>
+    </footer>
 
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
     <script>
         // Animation des messages
         function showMessage(type, message) {
             const successMsg = document.getElementById('successMessage');
             const errorMsg = document.getElementById('errorMessage');
-            
+
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
-            
+
             if (type === 'success') {
                 successMsg.textContent = message;
                 successMsg.style.display = 'block';
@@ -81,7 +152,7 @@
             input.addEventListener('focus', () => {
                 input.parentElement.querySelector('label').style.color = 'var(--primary-color)';
             });
-            
+
             input.addEventListener('blur', () => {
                 input.parentElement.querySelector('label').style.color = 'var(--text-color)';
             });

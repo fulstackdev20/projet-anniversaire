@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { sendConfirmationEmail } from '../utils/email.js';
 const prisma = new PrismaClient();
 
 export const guestController = {
@@ -45,6 +46,9 @@ export const guestController = {
                     eventId: event.id
                 }
             });
+
+            // Envoi de l'email de confirmation (ne bloque pas la réponse)
+            sendConfirmationEmail(email, name).catch(console.error);
 
             res.status(201).json(guest);
         } catch (error) {

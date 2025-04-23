@@ -1,37 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #ff4b8d;
-    --secondary-color: #8a2be2;
-    --bg-color: #f8f9fd;
+    --primary-color: #003366;
+    --accent-color: #FFD700;
     --text-color: #333;
-    --border-radius: 12px;
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+    --success: #28a745;
+    --error: #dc3545;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+    --hover-scale: 1.05;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background: var(--bg-color);
     color: var(--text-color);
+    background-color: #f9f9f9;
+    margin: 0; /* Supprime les marges par défaut du body */
 }
 
 .hero {
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)),
+                url('/images/confetti.svg');
+    background-size: cover;
+    background-position: center;
     height: 60vh;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    margin-bottom: 2rem;
+    color: var(--white);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    width: 100%; /* S'assure que l'élément ne dépasse pas la largeur de la page */
+}
+
+.hero:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: var(--shadow-hover);
 }
 
 .hero::before {
@@ -56,115 +74,322 @@ body {
     padding: 0 2rem;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
+.hero-content h1 {
+    font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.hero p {
+.hero-content p {
     font-size: 1.2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease 0.2s backwards;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.3s;
+    line-height: 1.8;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    overflow-x: hidden; /* Assure qu'aucun contenu ne déborde horizontalement */
+}
+
+/* Event Details Section */
+.event-details {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    transition: box-shadow var(--transition-speed);
+}
+
+.event-details:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.event-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.accent {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    overflow-x: hidden; /* Empêche tout débordement horizontal dans la grille */
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Program Timeline */
+.program {
+    margin-top: 2rem;
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 2rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.timeline span {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.features h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    background-color: var(--light-bg);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Reservation Section */
+.reservation-section {
+    padding: 4rem 0;
 }
 
 .reservation-card {
-    background: white;
-    border-radius: var(--border-radius);
+    max-width: 600px;
+    margin: 0 auto;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-50px);
-    animation: slideUp 1s ease;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.places-info {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
 }
 
 .form-group {
     margin-bottom: 1.5rem;
-    position: relative;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     color: var(--text-color);
-    font-weight: 500;
-    transition: transform 0.3s ease;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
-    border: 2px solid #e1e1e1;
-    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    background: #fff;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 75, 141, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.1);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-button {
+.submit-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
-    border-radius: var(--border-radius);
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.submit-btn:hover {
+    background-color: #002244;
+    transform: translateY(-3px);
 }
 
-#placesRestantes {
+.places-counter {
     text-align: center;
     margin-top: 1rem;
-    padding: 1rem;
-    background: linear-gradient(135deg, #fff5f8, #f8f0ff);
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    animation: pulse 2s infinite;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .success-message,
 .error-message {
-    padding: 1rem;
-    border-radius: var(--border-radius);
     margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease forwards;
 }
 
 .success-message {
-    background: #e7f7ed;
-    color: #0c6b1d;
-    border: 1px solid #a8e6b8;
+    background-color: #d4edda;
+    color: var(--success);
+    border: 1px solid #c3e6cb;
 }
 
 .error-message {
-    background: #ffebee;
-    color: #c62828;
-    border: 1px solid #ffcdd2;
+    background-color: #f8d7da;
+    color: var(--error);
+    border: 1px solid #f5c6cb;
 }
 
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    overflow-x: hidden; /* Empêche tout débordement horizontal dans le footer */
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column a {
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-column a:hover {
+    opacity: 0.8;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.services-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -258,10 +483,12 @@ button:hover {
     align-items: center;
     justify-content: center;
     z-index: 1;
+    transition: color var(--transition-speed);
 }
 
 .password-toggle:hover {
     color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .form-group input[type="password"],
@@ -271,16 +498,32 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
     }
 
     .container {
         padding: 1rem;
     }
 
-    .reservation-card {
-        margin-top: -30px;
-        padding: 1.5rem;
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-content {
+        gap: 2rem;
     }
 }
